@@ -10,14 +10,20 @@ class CalibrationServer(Node):
     def __init__(self):
         super().__init__('calibration_server')
         self.srv = self.create_service(Trigger, 'calibrate_camera', self.calibrate_camera_callback)
-        
+        # creo anche qui un servizio server abilitato da una richiesta trigger
         # Specify the images and parameters directories
+        # definisco le cartelle dove salvare i parametri
         self.images_folder = 'images'
         self.parameters_folder = 'parameters'
         os.makedirs(self.parameters_folder, exist_ok=True)
         self.calibration_params_file = os.path.join(self.parameters_folder, 'calibration_params.npz')
 
     def calibrate_camera_callback(self, request, response):
+        '''
+        Questa callback viene richiamata quando sopraggiunge una richiesta trigger al server.
+        Quindi, inizia il processo di calibrazione e di salvataggio dei parametri,
+        nonché di responso positivo della calibrazione stessa
+        '''
         # Collect the image paths
         image_files = glob.glob(f'{self.images_folder}/*.png')
         if len(image_files) < 10:
@@ -28,6 +34,7 @@ class CalibrationServer(Node):
         # Calibration process
         ret, camera_matrix, dist_coeffs = self.perform_calibration(image_files)
         if ret:
+            # salvataggio dati
             np.savez(self.calibration_params_file, camera_matrix=camera_matrix, dist_coeffs=dist_coeffs)
             self.get_logger().info('Camera calibrated successfully.')
             self.get_logger().info(f'Saved parameters to {self.calibration_params_file}')

@@ -2,7 +2,7 @@
 
 Author: Gabriele Nicolò Costa
 
-Here you will find all my packages created in ROS2. Each package is intented to be stand-alone, but there could be some packages that needs some other packages: I recommend you to read *info.md* file in each package before going forward.
+Here you will find all my packages created in ROS2. Each package is intented to be stand-alone, but there could be some packages that needs some other packages: I highly recommend you to read *info.md* file in each package before going forward.
 
 Do you have any questions or suggestions? Write me an email!
 
@@ -26,3 +26,4 @@ source install/setup.bash
 
 ## Packages
 - **py_camera_stream**: this package allows video streaming over network using udp streaming connections and topic for real time image feed
+- **setup**: setup node for camera configuration parameters. It calculates camera calibration matrix and distorsion coefficients and saves them for further applications. It is implemented as service.
