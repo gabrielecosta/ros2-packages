@@ -10,7 +10,9 @@ Il seguente pacchetto ROS permette di effettuare la calibrazione della camera, p
 
 ### Setup Client
 Il nodo di setup client permette di leggere dal feed **image_feed_topic** e di catturare almeno 10 immagini per poter effettuare la calibrazione. Non appena salva anche la decima immagine, tramite trigger di richiesta, contatta il server avvisandolo di avviare il processo di calibrazione sulle immagini già salvate. Bisogna usare il seguente pattern di calibrazione:
-![Pattern di calibrazione](calibration_pattern.jpg)
+<div style="text-align: center;">
+    <img src="calibration_pattern.jpg" alt="Patter di calibrazione" width="200" height="auto"/>
+</div>
 
 ### Setup Server
 Il nodo di setup server invece si occupa di effettuare la calibrazione, determinare la matrice e i coefficienti di distorsione e infine salvarli.
