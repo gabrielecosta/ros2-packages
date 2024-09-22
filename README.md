@@ -27,3 +27,9 @@ source install/setup.bash
 ## Packages
 - **py_camera_stream**: this package allows video streaming over network using udp streaming connections and topic for real time image feed
 - **setup**: setup node for camera configuration parameters. It calculates camera calibration matrix and distorsion coefficients and saves them for further applications. It is implemented as service.
+
+## Collaborations
+This repository is in collaboration with Mobius Robotics (University of Palermo).
+<div style="text-align: center;">
+    <img src="Logo.svg" alt="Mobius Robotics Team" width="200" height="auto"/>
+</div>
