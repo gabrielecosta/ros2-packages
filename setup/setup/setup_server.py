@@ -26,6 +26,7 @@ class CalibrationServer(Node):
         '''
         # Collect the image paths
         image_files = glob.glob(f'{self.images_folder}/*.png')
+        print(image_files)
         if len(image_files) < 10:
             response.success = False
             response.message = 'Not enough images for calibration.'
@@ -63,6 +64,7 @@ class CalibrationServer(Node):
         images = glob.glob('images/*.png')
 
         for fname in image_files:
+            print(f'Opened {fname}')
             img = cv2.imread(fname)
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
@@ -78,31 +80,6 @@ class CalibrationServer(Node):
 
         return ret, camera_matrix, dist_coeffs
 
-
-
-    # def perform_calibration(self, image_files):
-    #     # Prepare object points (3D points in real world space)
-    #     objp = np.zeros((6*9, 3), np.float32)
-    #     objp[:, :2] = np.mgrid[0:9, 0:6].T.reshape(-1, 2)  # Checkerboard pattern
-
-    #     objpoints = []  # 3D points in real world space
-    #     imgpoints = []  # 2D points in image plane
-
-    #     for fname in image_files:
-    #         img = cv2.imread(fname)
-    #         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-    #         # Find the chessboard corners
-    #         ret, corners = cv2.findChessboardCorners(gray, (9, 6), None)
-
-    #         if ret:
-    #             objpoints.append(objp)
-    #             imgpoints.append(corners)
-
-    #     # Perform camera calibration
-    #     ret, camera_matrix, dist_coeffs, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.shape[::-1], None, None)
-
-    #     return ret, camera_matrix, dist_coeffs
 
 def main(args=None):
     rclpy.init(args=args)
