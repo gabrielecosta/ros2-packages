@@ -42,7 +42,7 @@ class Receiver(Node):
 
 def main(args=None):
     # indirizzo ip del client di ricezione dello streaming
-    udp_ip = "192.168.1.140"
+    udp_ip = "192.168.151.225"
     # udp_ip = "127.0.0.1"
     udp_port = 5005
     udp_receiver = udpReceiver(udp_ip, udp_port)
