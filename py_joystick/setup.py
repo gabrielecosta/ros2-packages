@@ -20,6 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'writingnode = py_joystick.writing:main',
+            'readingnode = py_joystick.reading:main',
         ],
     },
 )
