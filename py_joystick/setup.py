@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'detector_node'
+package_name = 'py_joystick'
 
 setup(
     name=package_name,
