@@ -14,7 +14,7 @@ class ArucoDisplayer(Node):
     def __init__(self):
         super().__init__("aruco_displayer")
         self.cv_bridge = CvBridge()
-        self.subscription_ = self.create_subscription(Image, "/aruco_detection", self.displayCallback, 10)
+        self.subscription_ = self.create_subscription(String, "/aruco_detection", self.displayCallback, 10)
         self.frame_count = 0
 
     
