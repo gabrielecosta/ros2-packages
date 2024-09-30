@@ -28,8 +28,9 @@ source install/setup.bash
 - **py_camera_stream**: this package allows video streaming over network using udp streaming connections and topic for real time image feed
 - **setup**: setup node for camera configuration parameters. It calculates camera calibration matrix and distorsion coefficients and saves them for further applications. It is implemented as service.
 - **aruco detector**: aruco detector node for detecting and reporting aruco markers in a scene
-- **py object detetion node**: node for testing new YOLOv10 object detection model
-- **py joystick**: node for reading input from a joytstick and publishing into a topic for remote controlling
+- **py object detetion node**: package for testing new YOLOv10 object detection model
+- **py joystick**: package for reading input from a joytstick and publishing into a topic for remote controlling
+- **py_controller**: this package allows to reading input commands from a controller and translating them into wheels command. It uses a Nucleo Interface library for mapping controller commands and writing them in a specific format in specific registry.
 
 ## Collaborations
 This repository is in collaboration with Mobius Robotics (University of Palermo).
